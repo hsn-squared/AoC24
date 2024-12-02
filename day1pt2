@@ -1,0 +1,20 @@
+def calculate_similarity_score(left_list, right_list):
+    similarity_score = 0
+    for number in left_list:
+        count_in_right = right_list.count(number)
+        similarity_score += number * count_in_right
+    return similarity_score
+
+# Read the file and parse the data into two lists
+left_list = []
+right_list = []
+
+with open('input1.txt', 'r') as file:
+    for line in file:
+        left, right = map(int, line.split())
+        left_list.append(left)
+        right_list.append(right)
+
+# Calculate similarity score
+score = calculate_similarity_score(left_list, right_list)
+print(f"Similarity Score: {score}")
